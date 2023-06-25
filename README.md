@@ -28,4 +28,4 @@ Composite methods:
 
 * Add git submodule to Raspberry Pi Pico project
 * Add the line ```add_subirectory(pico-74hc595-lib)``` to the project's CMakeLists.txt
-* Link the library shift_register library to the executable as necessary
+* Link the library pico-74hc595-lib to the executable as necessary
