@@ -114,5 +114,6 @@ void ShiftReg74HC595::send_byte(int8_t data)
         int index = 7 - j;
         send_bit(bits[index]);
     }
+    latch();
 }
 
