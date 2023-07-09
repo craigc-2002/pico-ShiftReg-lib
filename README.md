@@ -1,16 +1,16 @@
 # pico-74hc595-lib
 
-Library to interface the Raspberry Pi Pico with a 74HC595 shift register.
+Library to interface the Raspberry Pi Pico with a shift register.
 
 ## Shift Register Class
 
-The library provides the ShiftReg74HC595 class in the header ```74hc595.h```. This class contains the following methods:
+The library provides the ShiftReg class in the header ```ShiftReg.hpp```. This class contains the following methods:
 
 Constructors:
 
-* ```ShiftReg74HC595(int data_pin, int clock_pin)``` - only using the data and shift register clock pins
-* ```ShiftReg74HC595(int data_pin, int clock_pin, int latch_pin)``` - using the data, shift register clock and latch pin.
-* ```ShiftReg74HC595(int data_pin, int clock_pin, int latch_pin, int clear_pin)``` - using the data, clock, latch and clear pins. If the clear pin is needed without the latch pin, the latch_pin parameter can be set to -1.
+* ```ShiftReg(int data_pin, int clock_pin)``` - only using the data and shift register clock pins
+* ```ShiftReg(int data_pin, int clock_pin, int latch_pin)``` - using the data, shift register clock and latch pin.
+* ```ShiftReg(int data_pin, int clock_pin, int latch_pin, int clear_pin)``` - using the data, clock, latch and clear pins. If the clear pin is needed without the latch pin, the latch_pin parameter can be set to -1.
 
 Basic methods:
 
@@ -27,5 +27,5 @@ Composite methods:
 ## Usage
 
 * Add git submodule to Raspberry Pi Pico project
-* Add the line ```add_subirectory(pico-74hc595-lib)``` to the project's CMakeLists.txt
-* Link the library pico-74hc595-lib to the executable as necessary
+* Add the line ```add_subirectory(pico-ShiftReg-lib)``` to the project's CMakeLists.txt
+* Link the library pico-ShiftReg-lib to the executable as necessary

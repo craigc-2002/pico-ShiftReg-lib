@@ -1,21 +1,21 @@
-// 74hc595.hpp
+// ShiftReg.hpp
 //
 // Craig Cochrane, 2023
 //
-// Library to interface the Raspberry Pi Pico with a 74HC595 shift register
+// Library to interface the Raspberry Pi Pico with a shift register
 //
 
-#ifndef _74HC595_H
-#define _74HC595_H
+#ifndef _ShiftReg_H
+#define _ShiftReg_H
 
 #include <cstdint>
 
-class ShiftReg74HC595
+class ShiftReg
 {
     public:
-        ShiftReg74HC595(int data_pin, int clock_pin);
-        ShiftReg74HC595(int data_pin, int clock_pin, int latch_pin);
-        ShiftReg74HC595(int data_pin, int clock_pin, int latch_pin, int clear_pin);
+        ShiftReg(int data_pin, int clock_pin);
+        ShiftReg(int data_pin, int clock_pin, int latch_pin);
+        ShiftReg(int data_pin, int clock_pin, int latch_pin, int clear_pin);
 
         void set_data(int value);
         void clock_pulse(void);

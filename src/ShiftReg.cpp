@@ -1,11 +1,11 @@
-// 74hc595.cpp
+// ShiftReg.cpp
 //
 // Craig Cochrane, 2023
 //
-// Library to interface the Raspberry Pi Pico with a 74HC595 shift register
+// Library to interface the Raspberry Pi Pico with a shift register
 //
 
-#include "74hc595.hpp"
+#include "ShiftReg.hpp"
 
 #include <cmath>
 #include <array>
@@ -15,25 +15,25 @@
 
 // ---------- CONSTRUCTORS ----------
 
-ShiftReg74HC595::ShiftReg74HC595(int data_pin, int clock_pin):
+ShiftReg::ShiftReg(int data_pin, int clock_pin):
     _data_pin(data_pin), _clock_pin(clock_pin)
 {
     init_pins();
 }
 
-ShiftReg74HC595::ShiftReg74HC595(int data_pin, int clock_pin, int latch_pin):
+ShiftReg::ShiftReg(int data_pin, int clock_pin, int latch_pin):
     _data_pin(data_pin), _clock_pin(clock_pin), _latch_pin(latch_pin)
 {
     init_pins();
 }
 
-ShiftReg74HC595::ShiftReg74HC595(int data_pin, int clock_pin, int latch_pin, int clear_pin):
+ShiftReg::ShiftReg(int data_pin, int clock_pin, int latch_pin, int clear_pin):
     _data_pin(data_pin), _clock_pin(clock_pin), _latch_pin(latch_pin), _clear_pin(clear_pin)
 {
     init_pins();
 }
 
-void ShiftReg74HC595::init_pins()
+void ShiftReg::init_pins()
 {
     gpio_init(_data_pin);
     gpio_set_dir(_data_pin, GPIO_OUT);
@@ -56,19 +56,19 @@ void ShiftReg74HC595::init_pins()
 
 // ---------- BASIC METHODS ----------
 
-void ShiftReg74HC595::set_data(int value)
+void ShiftReg::set_data(int value)
 {
     gpio_put(_data_pin, value);
 }
 
-void ShiftReg74HC595::clock_pulse(void)
+void ShiftReg::clock_pulse(void)
 {
     gpio_put(_clock_pin, 1);
     sleep_ms(0.1);
     gpio_put(_clock_pin, 0);
 }
 
-void ShiftReg74HC595::latch(void)
+void ShiftReg::latch(void)
 {
     if (_latch_pin >= 0)
     {
@@ -78,7 +78,7 @@ void ShiftReg74HC595::latch(void)
     }
 }
 
-void ShiftReg74HC595::clear(void)
+void ShiftReg::clear(void)
 {
     if (_clear_pin >= 0)
     {
@@ -89,13 +89,13 @@ void ShiftReg74HC595::clear(void)
 }
 // ---------- COMPOSITE METHODS ----------
 
-void ShiftReg74HC595::send_bit(bool data)
+void ShiftReg::send_bit(bool data)
 {
     set_data(int(data));
     clock_pulse();
 }
 
-void ShiftReg74HC595::send_byte(int8_t data)
+void ShiftReg::send_byte(int8_t data)
 {
     std::array<bool, 8> bits;
 

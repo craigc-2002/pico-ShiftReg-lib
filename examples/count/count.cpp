@@ -1,8 +1,8 @@
-#include "74hc595.hpp"
+#include "ShiftReg.hpp"
 #include <stdio.h>
 #include "pico/stdlib.h"
 
-ShiftReg74HC595 shift_reg(0, 1, 2);
+ShiftReg shift_reg(0, 1, 2);
 
 int main(void)
 {

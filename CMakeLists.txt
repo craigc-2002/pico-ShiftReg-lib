@@ -4,14 +4,14 @@ cmake_minimum_required(VERSION 3.13)
 # note: this must happen before project()
 include($ENV{PICO_SDK_PATH}/pico_sdk_init.cmake)
 
-# initialize the Raspberry Pi Pico SDK
-pico_sdk_init()
-
 project(shift_reg 
     VERSION 0.1
-    DESCRIPTION "Library to interface the Rasberry Pi Pico with the 74HC595 Shift Register"
+    DESCRIPTION "Library to interface the Rasberry Pi Pico with a Shift Register"
     LANGUAGES CXX C ASM
 )
+
+# initialize the Raspberry Pi Pico SDK
+pico_sdk_init()
 
 # rest of your project
 
