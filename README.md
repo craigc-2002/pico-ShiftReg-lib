@@ -1,4 +1,4 @@
-# pico-74hc595-lib
+# pico-ShiftReg-lib
 
 Library to interface the Raspberry Pi Pico with a shift register.
 
